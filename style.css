@@ -8,16 +8,23 @@
   --bg-dark:#0b0b0b;--text-dark:#fafafa;--card-dark:#1a1a1a;
 }
 body.dark{--bg:var(--bg-dark);--text:var(--text-dark);--card:var(--card-dark)}
-body.light{--bg:var(--bg-light);--text:var(--text-light);--card:var(--card-light)}
+body.light{--bg:var(--bg-light);--text:var(--text-dark);--card:var(--card-light)}
 body{background:var(--bg);color:var(--text);transition:background .3s,color .3s}
 
 /* header */
-header{ text-align:center;padding:2.5rem 1rem;background:linear-gradient(135deg,var(--yellow),#000);position:relative }
-.logo-title{display:flex;align-items:center;justify-content:center;gap:.75rem}
-.logo{width:56px;height:56px;border-radius:10px;object-fit:cover;box-shadow:0 0 10px rgba(255,212,0,.25)}
-header h1{font-size:2.4rem;font-weight:700;background:linear-gradient(90deg,#000 0%,#ffd400 50%,#ffea70 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 12px rgba(255,212,0,.45)}
-header p{font-size:1.05rem;margin-top:.5rem;opacity:0;transform:translateY(10px);animation:fadeUp 1.2s ease forwards .8s}
-@keyframes fadeUp{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+header{ 
+  text-align:center;padding:2.5rem 1rem;background:linear-gradient(135deg,var(--yellow),#000);position:relative }
+.logo-title{
+  display:flex;align-items:center;justify-content:center;gap:.75rem}
+.logo{
+  width:56px;height:56px;border-radius:10px;object-fit:cover;box-shadow:0 0 10px rgba(255,212,0,.25)}
+header h1{
+  font-size:2.4rem;font-weight:700;background:linear-gradient(90deg,#000 0%,#ffd400 50%,#ffea70 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 12px rgba(255,212,0,.45)}
+header p{
+  font-size:1.05rem;margin-top:.5rem;opacity:0;transform:translateY(10px);animation:fadeUp 1.2s ease forwards .8s}
+@keyframes fadeUp{
+  from{
+    opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
 
 /* theme toggle */
 #theme-toggle{position:absolute;top:15px;right:20px;padding:.6rem 1rem;border-radius:25px;border:0;background:#111;color:var(--yellow);cursor:pointer;font-weight:600}
@@ -26,7 +33,46 @@ header p{font-size:1.05rem;margin-top:.5rem;opacity:0;transform:translateY(10px)
 /* product grid & cards */
 .product-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.8rem;padding:2rem}
 .product-card{background:var(--card);border-radius:14px;padding:1rem;text-align:center;box-shadow:0 0 15px rgba(0,0,0,.12);transition:transform .28s ease,box-shadow .28s}
-.product-card:hover{transform:translateY(-8px);box-shadow:0 10px 30px rgba(0,0,0,.16)}
+.product-card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  animation: fadeIn 1s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+/* ✨ Efek Hover Baru */
+.product-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(255, 212, 0, 0.4);
+}
+
+.product-card:hover img {
+  transform: scale(1.07);
+  filter: brightness(1.1);
+}
+
+.product-card:hover h2 {
+  color: var(--yellow);
+  text-shadow: 0 0 8px rgba(255, 212, 0, 0.6);
+}
+
+.product-card:hover p {
+  opacity: 1;
+  color: var(--text);
+}
+
 .product-card img{width:100%;height:auto;border-radius:10px;margin-bottom:1rem;display:block}
 .product-card h2{font-size:1.05rem;margin-bottom:.5rem}
 .product-card p{font-size:.9rem;color:var(--text);opacity:.9;margin-bottom:.8rem}
