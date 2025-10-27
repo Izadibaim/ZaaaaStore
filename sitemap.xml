@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://Izadibaim.github.io/ZaaaaStore/</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://Izadibaim.github.io/ZaaaaStore/index.html</loc></url>
-  <!-- tambahkan halaman atau produk spesifik bila ada -->
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://izadibaim.github.io/ZaaaaStore/</loc>
+    <lastmod>2025-10-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Produk -->
+  <url><loc>https://izadibaim.github.io/ZaaaaStore/headphone-zonicx</loc></url>
+  <url><loc>https://izadibaim.github.io/ZaaaaStore/speaker-zonicx</loc></url>
+  <url><loc>https://izadibaim.github.io/ZaaaaStore/tws-earbuds-zonicx</loc></url>
+  <url><loc>https://izadibaim.github.io/ZaaaaStore/mic-studio</loc></url>
+  <url><loc>https://izadibaim.github.io/ZaaaaStore/stand-hp-lipat</loc></url>
+  <url><loc>https://izadibaim.github.io/ZaaaaStore/powerbank-fastcharge</loc></url>
+  <url><loc>https://izadibaim.github.io/ZaaaaStore/peredam-suara-mic</loc></url>
+  <url><loc>https://izadibaim.github.io/ZaaaaStore/soundboard-maono</loc></url>
 </urlset>
+gi
