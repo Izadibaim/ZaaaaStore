@@ -1,64 +1,54 @@
-// ========== ELEMENT DASAR ==========
+// elements
 const body = document.body;
-const toggleBtn = document.getElementById("theme-toggle");
-const reveals = document.querySelectorAll(".product-card");
+const toggleBtn = document.getElementById('theme-toggle');
+const reveals = document.querySelectorAll('.product-card');
+const buyButtons = document.querySelectorAll('.buy-btn');
 
-// ========== DETEKSI TEMA OTOMATIS ==========
+// theme detection & apply
+const savedTheme = localStorage.getItem('theme');
 const hour = new Date().getHours();
-const savedTheme = localStorage.getItem("theme");
-
-function applyTheme(theme) {
-  body.classList.remove("light", "dark");
-  body.classList.add(theme);
-  toggleBtn.textContent =
-    theme === "dark" ? "Mode: 🌙 Gelap" : "Mode: 🌞 Terang";
+function applyTheme(t){
+  body.classList.remove('light','dark');
+  body.classList.add(t);
+  toggleBtn.textContent = t === 'dark' ? 'Mode: 🌙 Gelap' : 'Mode: 🌞 Terang';
+  toggleBtn.setAttribute('aria-pressed', t==='dark');
 }
+if(savedTheme) applyTheme(savedTheme);
+else applyTheme((hour>=6 && hour<18) ? 'light' : 'dark');
 
-// Kalau user belum pernah pilih tema, sesuaikan dengan waktu
-if (!savedTheme) {
-  if (hour >= 6 && hour < 18) {
-    applyTheme("light");
-  } else {
-    applyTheme("dark");
-  }
-} else {
-  applyTheme(savedTheme);
-}
-
-// ========== TOGGLE MANUAL ==========
-toggleBtn.addEventListener("click", () => {
-  const newTheme = body.classList.contains("dark") ? "light" : "dark";
-  applyTheme(newTheme);
-  localStorage.setItem("theme", newTheme);
-
-  // Efek rotasi kecil
-  toggleBtn.style.transform = "rotate(180deg)";
-  setTimeout(() => (toggleBtn.style.transform = "rotate(0deg)"), 300);
-
-  // Kirim event ke Google Analytics (jika terhubung)
-  if (typeof gtag === "function") {
-    gtag("event", "theme_switch", {
-      event_category: "User Interaction",
-      event_label: newTheme,
-      value: newTheme === "dark" ? 1 : 0,
-    });
-  }
+// manual toggle
+toggleBtn.addEventListener('click', ()=>{
+  const next = body.classList.contains('dark') ? 'light' : 'dark';
+  applyTheme(next);
+  localStorage.setItem('theme', next);
+  toggleBtn.style.transform = 'rotate(180deg)';
+  setTimeout(()=> toggleBtn.style.transform = 'rotate(0deg)', 300);
+  if(typeof gtag === 'function') gtag('event','theme_switch',{event_category:'UX',event_label:next});
 });
 
-// ========== SCROLL REVEAL EFEK ==========
-function revealOnScroll() {
-  reveals.forEach((el) => {
-    const windowHeight = window.innerHeight;
-    const elementTop = el.getBoundingClientRect().top;
-    const visiblePoint = 120;
-
-    if (elementTop < windowHeight - visiblePoint) {
-      el.classList.add("reveal", "active");
-    } else {
-      el.classList.remove("active");
+// scroll reveal simple
+function revealOnScroll(){
+  const offset = 120;
+  reveals.forEach((el, i)=>{
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - offset){
+      el.style.opacity = 1;
+      el.style.transform = 'translateY(0)';
+      el.style.transition = 'opacity .6s ease, transform .6s ease';
     }
   });
 }
-
-window.addEventListener("scroll", revealOnScroll);
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
 revealOnScroll();
+
+// buy button — open merchant link + track
+buyButtons.forEach(btn=>{
+  btn.addEventListener('click', (e)=>{
+    const product = btn.dataset.product;
+    const link = btn.dataset.link;
+    if(typeof gtag === 'function') gtag('event','click_buy',{event_category:'Purchase',event_label:product});
+    // open in new tab
+    if(link) window.open(link, '_blank', 'noopener');
+  });
+});

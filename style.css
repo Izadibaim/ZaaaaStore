@@ -1,373 +1,60 @@
-/* ==============================================
-   🌟 ZAAAASTORE FINAL STYLE (2025)
-   ============================================== */
+/* === ZAAAASTORE style (final) === */
 
-   * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-    transition: background 0.3s ease, color 0.3s ease;
-  }
-  
-  /* 🎨 WARNA DASAR */
-  :root {
-    --yellow: #ffd400;
-    --yellow-hover: #ffb800;
-  
-    --bg-light: #fff8d6;
-    --text-light: #2b2b2b;
-    --card-light: #fffbea;
-  
-    --bg-dark: #0b0b0b;
-    --text-dark: #fafafa;
-    --card-dark: #1a1a1a;
-  }
-  
-  /* 🌙 MODE */
-  body.dark {
-    --bg: var(--bg-dark);
-    --text: var(--text-dark);
-    --card: var(--card-dark);
-  }
-  body.light {
-    --bg: var(--bg-light);
-    --text: var(--text-light);
-    --card: var(--card-light);
-  }
-  
-  body {
-    background: var(--bg);
-    color: var(--text);
-  }
-  
-  /* ==============================================
-     🔝 HEADER
-     ============================================== */
-  header {
-    text-align: center;
-    padding: 2.5rem 1rem;
-    background: linear-gradient(135deg, var(--yellow), #000);
-    color: #111;
-    position: relative;
-  }
-  
-  header h1 {
-    font-size: 2.8rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    background: linear-gradient(90deg, #000 0%, #ffd400 50%, #ffea70 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 15px rgba(255, 212, 0, 0.5);
-    animation: glowPulse 3s ease-in-out infinite;
-  }
-  
-  header p {
-    font-size: 1.05rem;
-    font-weight: 500;
-    margin-top: 0.5rem;
-    opacity: 0;
-    transform: translateY(10px);
-    animation: fadeUp 1.2s ease forwards;
-    animation-delay: 0.8s;
-  }
-  
-  /* Mode terang */
-  body.light header p {
-    color: #fdfdfd;
-    text-shadow: 0 0 8px rgba(255, 215, 0, 0.4),
-      0 0 16px rgba(255, 215, 0, 0.2);
-  }
-  
-  /* Mode gelap */
-  body.dark header p {
-    color: #fdfdfd;
-    text-shadow: 0 0 10px rgba(255, 212, 0, 0.5);
-  }
-  
-  /* Animasi muncul halus */
-  @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(15px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* ==============================================
-     🌗 TOGGLE MODE
-     ============================================== */
-  #theme-toggle {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    padding: 0.6rem 1rem;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    background: #111;
-    color: var(--yellow);
-    font-weight: 600;
-    transition: all 0.3s ease;
-  }
-  #theme-toggle:hover {
-    background: var(--yellow-hover);
-    color: #111;
-  }
-  
-  /* ==============================================
-     🛍️ PRODUK GRID
-     ============================================== */
-  .product-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.8rem;
-    padding: 2rem;
-  }
-  
-  /* ==============================================
-     🧩 KARTU PRODUK
-     ============================================== */
-  .product-card {
-    background: var(--card);
-    border-radius: 14px;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: fadeIn 1s ease;
-  }
-  .product-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 0 25px rgba(255, 212, 0, 0.6);
-  }
-  
-  .product-card img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-  }
-  
-  .product-card h2 {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-  }
-  .product-card p {
-    font-size: 0.9rem;
-    color: var(--text);
-    opacity: 0.8;
-    margin-bottom: 0.8rem;
-  }
-  body.light .product-card p {
-    color: #555;
-  }
-  body.dark .product-card p {
-    color: #bbb;
-  }
-  
-  .product-card span {
-    display: block;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: var(--yellow);
-  }
-  
-  .buy-btn {
-    background: var(--yellow);
-    color: #111;
-    padding: 0.6rem 1.5rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
-  }
-  .buy-btn:hover {
-    background: var(--yellow-hover);
-    transform: scale(1.05);
-  }
-  
-  /* ==============================================
-     ⚡ FOOTER
-     ============================================== */
-  footer {
-    background: #111;
-    color: #eee;
-    padding: 3rem 1.5rem 0.5rem;
-    margin-top: 3rem;
-    animation: fadeUpFooter 1.4s ease-in-out both;
-  }
-  @keyframes fadeUpFooter {
-    0% {
-      opacity: 0;
-      transform: translateY(50px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Layout utama footer */
-  .footer-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 2rem;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  
-  /* Kolom kiri */
-  .footer-about h3 {
-    color: var(--yellow);
-    font-size: 1.4rem;
-    margin-bottom: 0.8rem;
-  }
-  .footer-about p {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: #ccc;
-  }
-  
-  /* Kolom tengah */
-  .footer-links h4,
-  .footer-social h4 {
-    color: var(--yellow);
-    margin-bottom: 0.6rem;
-    font-size: 1.1rem;
-  }
-  .footer-links p,
-  .footer-links a {
-    color: #ccc;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.3s ease;
-  }
-  .footer-links a:hover {
-    color: var(--yellow);
-  }
-  
-  /* Kolom kanan (sosial media) */
-  .social-icons {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .social-icons a {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #ccc;
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: color 0.3s ease, transform 0.3s ease;
-  }
-  .social-icons a i {
-    font-size: 1.2rem;
-    color: var(--yellow);
-    transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
-  }
-  .social-icons a:hover {
-    color: var(--yellow);
-    transform: translateX(4px);
-  }
-  .social-icons a:hover i {
-    color: #fff;
-    transform: rotate(15deg);
-    text-shadow: 0 0 10px rgba(255, 212, 0, 0.6);
-  }
-  
-  /* ==============================================
-     📜 FOOTER BOTTOM (paling bawah)
-     ============================================== */
-  .footer-bottom {
-    width: 100%;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: 2.5rem;
-    padding-top: 1rem;
-    text-align: center;
-    font-size: 0.85rem;
-    color: #bbb;
-    animation: fadeInBottom 2s ease-in-out both;
-    display: block;
-    clear: both;
-  }
-  .footer-bottom p {
-    margin: 0;
-  }
-  .footer-bottom span {
-    color: var(--yellow);
-    font-weight: 600;
-    transition: text-shadow 0.3s ease;
-  }
-  .footer-bottom strong {
-    color: #fff;
-    transition: text-shadow 0.3s ease;
-  }
-  /* Glow lembut saat hover */
-  .footer-bottom span:hover,
-  .footer-bottom strong:hover {
-    text-shadow: 0 0 10px rgba(255, 212, 0, 0.7),
-      0 0 20px rgba(255, 212, 0, 0.5);
-  }
-  @keyframes fadeInBottom {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* ==============================================
-     📱 RESPONSIVE DESIGN
-     ============================================== */
-  @media (max-width: 600px) {
-    .footer-container {
-      text-align: center;
-    }
-    .footer-about p {
-      max-width: 90%;
-      margin: 0 auto;
-    }
-    .social-icons {
-      align-items: center;
-    }
-  }
-  
-  /* ==============================================
-     ✨ ANIMASI TAMBAHAN
-     ============================================== */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  @keyframes glowPulse {
-    0% {
-      text-shadow: 0 0 10px rgba(255, 212, 0, 0.4),
-        0 0 20px rgba(255, 212, 0, 0.3);
-    }
-    50% {
-      text-shadow: 0 0 25px rgba(255, 212, 0, 0.7),
-        0 0 45px rgba(255, 212, 0, 0.6);
-    }
-    100% {
-      text-shadow: 0 0 10px rgba(255, 212, 0, 0.4),
-        0 0 20px rgba(255, 212, 0, 0.3);
-    }
-  }
-  
+/* reset & root colors */
+*{box-sizing:border-box;margin:0;padding:0;font-family:"Poppins",sans-serif}
+:root{
+  --yellow:#ffd400;--yellow-hover:#ffb800;
+  --bg-light:#fff8d6;--text-light:#2b2b2b;--card-light:#fffbea;
+  --bg-dark:#0b0b0b;--text-dark:#fafafa;--card-dark:#1a1a1a;
+}
+body.dark{--bg:var(--bg-dark);--text:var(--text-dark);--card:var(--card-dark)}
+body.light{--bg:var(--bg-light);--text:var(--text-light);--card:var(--card-light)}
+body{background:var(--bg);color:var(--text);transition:background .3s,color .3s}
+
+/* header */
+header{ text-align:center;padding:2.5rem 1rem;background:linear-gradient(135deg,var(--yellow),#000);position:relative }
+.logo-title{display:flex;align-items:center;justify-content:center;gap:.75rem}
+.logo{width:56px;height:56px;border-radius:10px;object-fit:cover;box-shadow:0 0 10px rgba(255,212,0,.25)}
+header h1{font-size:2.4rem;font-weight:700;background:linear-gradient(90deg,#000 0%,#ffd400 50%,#ffea70 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 12px rgba(255,212,0,.45)}
+header p{font-size:1.05rem;margin-top:.5rem;opacity:0;transform:translateY(10px);animation:fadeUp 1.2s ease forwards .8s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+
+/* theme toggle */
+#theme-toggle{position:absolute;top:15px;right:20px;padding:.6rem 1rem;border-radius:25px;border:0;background:#111;color:var(--yellow);cursor:pointer;font-weight:600}
+#theme-toggle:hover{background:var(--yellow-hover);color:#111}
+
+/* product grid & cards */
+.product-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.8rem;padding:2rem}
+.product-card{background:var(--card);border-radius:14px;padding:1rem;text-align:center;box-shadow:0 0 15px rgba(0,0,0,.12);transition:transform .28s ease,box-shadow .28s}
+.product-card:hover{transform:translateY(-8px);box-shadow:0 10px 30px rgba(0,0,0,.16)}
+.product-card img{width:100%;height:auto;border-radius:10px;margin-bottom:1rem;display:block}
+.product-card h2{font-size:1.05rem;margin-bottom:.5rem}
+.product-card p{font-size:.9rem;color:var(--text);opacity:.9;margin-bottom:.8rem}
+.product-card span{display:block;font-weight:700;margin-bottom:1rem;color:var(--yellow)}
+.buy-btn{background:var(--yellow);color:#111;padding:.6rem 1.5rem;border-radius:50px;border:0;cursor:pointer;font-weight:600;transition:transform .2s,background .2s}
+.buy-btn:hover{background:var(--yellow-hover);transform:scale(1.03)}
+
+/* footer */
+footer{background:#111;color:#eee;padding:3rem 1.5rem .5rem;margin-top:3rem;animation:fadeUpFooter 1.4s both}
+@keyframes fadeUpFooter{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:translateY(0)}}
+.footer-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2rem;max-width:1100px;margin:0 auto}
+.footer-about h3,.footer-links h4,.footer-social h4{color:var(--yellow)}
+.footer-about p{color:#ccc;line-height:1.6}
+.footer-links a{color:#ccc;text-decoration:none}
+.footer-links a:hover{color:var(--yellow)}
+.social-icons{display:flex;flex-direction:column;gap:.5rem}
+.social-icons a{display:flex;align-items:center;gap:.5rem;color:#ccc;text-decoration:none;transition:color .2s,transform .2s}
+.social-icons a i{color:var(--yellow)}
+.social-icons a:hover{color:var(--yellow);transform:translateX(4px)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);margin-top:2.5rem;padding-top:1rem;text-align:center;color:#bbb;animation:fadeInBottom 1.8s both}
+.footer-bottom span{color:var(--yellow);font-weight:600}
+.footer-bottom strong{color:#fff}
+@keyframes fadeInBottom{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* responsive */
+@media (max-width:600px){
+  header h1{font-size:1.8rem}
+  .logo{width:46px;height:46px}
+  .footer-container{text-align:center}
+  .social-icons{align-items:center}
+}
