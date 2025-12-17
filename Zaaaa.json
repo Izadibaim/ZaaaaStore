@@ -1,0 +1,162 @@
+<!-- ✅ Structured Data JSON-LD (ZaaaaStore Complete) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Organization", "WebSite"],
+      "name": "ZaaaaStore",
+      "url": "https://izadibaim.github.io/ZaaaaStore/",
+      "logo": "https://izadibaim.github.io/ZaaaaStore/assets/img/logo-zaaaa.png",
+      "description": "ZaaaaStore adalah toko perlengkapan audio, konten kreatif, dan aksesoris profesional dengan produk berkualitas tinggi untuk menunjang aktivitas digitalmu.",
+      "sameAs": [
+        "https://www.instagram.com/izadibaim/",
+        "https://www.tiktok.com/@nynggss",
+        "https://www.youtube.com/@tempatnyasadboy3455"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+62-21-55726558",
+        "contactType": "customer service",
+        "areaServed": "ID",
+        "availableLanguage": "Indonesian"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "name": "Katalog Produk ZaaaaStore",
+      "url": "https://izadibaim.github.io/ZaaaaStore/",
+      "itemListElement": [
+        {
+          "@type": "Product",
+          "position": 1,
+          "name": "Headphone Bluetooth ZonicX",
+          "image": "https://izadibaim.github.io/ZaaaaStore/assets/img/headphone-zonicx.jpg",
+          "description": "Desain elegan, noise cancelling, baterai 30 jam nonstop.",
+          "sku": "HZ-001",
+          "brand": { "@type": "Brand", "name": "ZonicX" },
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.tokopedia.com/",
+            "priceCurrency": "IDR",
+            "price": "499000",
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@type": "Product",
+          "position": 2,
+          "name": "Speaker Portable ZonicX",
+          "image": "https://izadibaim.github.io/ZaaaaStore/assets/img/speaker-zonicx.jpeg",
+          "description": "Suara jernih dan bass kuat dengan koneksi Bluetooth 5.3.",
+          "sku": "SP-001",
+          "brand": { "@type": "Brand", "name": "ZonicX" },
+          "offers": {
+            "@type": "Offer",
+            "url": "https://shopee.co.id/",
+            "priceCurrency": "IDR",
+            "price": "299000",
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@type": "Product",
+          "position": 3,
+          "name": "TWS Earbuds ZonicX",
+          "image": "https://izadibaim.github.io/ZaaaaStore/assets/img/tws-earbuds-zonicx.jpg",
+          "description": "Earbuds ringan dengan sensor sentuh & tahan air IPX4.",
+          "sku": "TW-001",
+          "brand": { "@type": "Brand", "name": "ZonicX" },
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.blibli.com/",
+            "priceCurrency": "IDR",
+            "price": "259000",
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@type": "Product",
+          "position": 4,
+          "name": "Microphone Studio",
+          "image": "https://izadibaim.github.io/ZaaaaStore/assets/img/mic-studio.jpeg",
+          "description": "Suara profesional untuk podcast dan rekaman musik.",
+          "sku": "MC-001",
+          "brand": { "@type": "Brand", "name": "MAONO" },
+          "offers": {
+            "@type": "Offer",
+            "url": "https://tokopedia.com/",
+            "priceCurrency": "IDR",
+            "price": "699000",
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@type": "Product",
+          "position": 5,
+          "name": "Stand HP Lipat",
+          "image": "https://izadibaim.github.io/ZaaaaStore/assets/img/stand-hp-lipat.jpeg",
+          "description": "Ringan, kokoh, bisa diatur untuk semua ukuran HP.",
+          "sku": "ST-001",
+          "brand": { "@type": "Brand", "name": "ZaaaaStore" },
+          "offers": {
+            "@type": "Offer",
+            "url": "https://shopee.co.id/",
+            "priceCurrency": "IDR",
+            "price": "79000",
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@type": "Product",
+          "position": 6,
+          "name": "Powerbank FastCharge",
+          "image": "https://izadibaim.github.io/ZaaaaStore/assets/img/powerbank-fastcharge.jpeg",
+          "description": "Kapasitas 20.000mAh, mendukung pengisian cepat 25W.",
+          "sku": "PB-001",
+          "brand": { "@type": "Brand", "name": "ZaaaaStore" },
+          "offers": {
+            "@type": "Offer",
+            "url": "https://blibli.com/",
+            "priceCurrency": "IDR",
+            "price": "349000",
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@type": "Product",
+          "position": 7,
+          "name": "Peredam Suara Microphone",
+          "image": "https://izadibaim.github.io/ZaaaaStore/assets/img/peredam-suara-mic.jpeg",
+          "description": "Foam shield profesional untuk mengurangi pantulan suara.",
+          "sku": "PM-001",
+          "brand": { "@type": "Brand", "name": "ZaaaaStore" },
+          "offers": {
+            "@type": "Offer",
+            "url": "https://tokopedia.com/",
+            "priceCurrency": "IDR",
+            "price": "199000",
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@type": "Product",
+          "position": 8,
+          "name": "MAONO Sound Board",
+          "image": "https://izadibaim.github.io/ZaaaaStore/assets/img/soundboard-maono.jpeg",
+          "description": "MixCaster profesional untuk streaming & podcasting.",
+          "sku": "SB-001",
+          "brand": { "@type": "Brand", "name": "MAONO" },
+          "offers": {
+            "@type": "Offer",
+            "url": "https://shopee.co.id/",
+            "priceCurrency": "IDR",
+            "price": "2199000",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
