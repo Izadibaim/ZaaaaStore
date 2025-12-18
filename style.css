@@ -1,117 +1,164 @@
-/* === ZAAAASTORE style (final) === */
-
-/* reset & root colors */
-*{box-sizing:border-box;margin:0;padding:0;font-family:"Poppins",sans-serif}
-:root{
-  --yellow:#ffd400;--yellow-hover:#ffb800;
-  --bg-light:#fff8d6;--text-light:#2b2b2b;--card-light:#fffbea;
-  --bg-dark:#0b0b0b;--text-dark:#fafafa;--card-dark:#1a1a1a;
+/* --- RESET & DASAR --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
 }
-body.dark{--bg:var(--bg-dark);--text:var(--text-dark);--card:var(--card-dark)}
-body.light{--bg:var(--bg-light);--text:var(--text-dark);--card:var(--card-light)}
-body{background:var(--bg);color:var(--text);transition:background .3s,color .3s}
 
-/* header */
-header{ 
-  text-align:center;padding:2.5rem 1rem;background:linear-gradient(135deg,var(--yellow),#000);position:relative }
-.logo-title{
-  display:flex;align-items:center;justify-content:center;gap:.75rem}
-.logo{
-  width:56px;height:56px;border-radius:10px;object-fit:cover;box-shadow:0 0 10px rgba(255,212,0,.25)}
-  header h1 {
-    font-family: 'Russo One', sans-serif;
-    font-size: 3rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    background: linear-gradient(90deg, #FFD700 0%, #FFB700 40%, #FFF5C2 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.4),
-                 0 0 25px rgba(255, 215, 0, 0.3);
-    animation: glowPulse 3s ease-in-out infinite;
+:root {
+  --ios-bg: #f2f2f7;
+  --ios-card: rgba(255, 255, 255, 0.85);
+  --ios-text: #000000;
+  --ios-text-secondary: #8e8e93;
+  --ios-blue: #007aff;
+  --island-bg: #000000;
+}
+
+body.dark {
+  --ios-bg: #000000;
+  --ios-card: rgba(28, 28, 30, 0.85);
+  --ios-text: #ffffff;
+  --ios-text-secondary: #98989d;
+  --ios-blue: #0a84ff;
+  --island-bg: #1c1c1e;
+}
+
+body {
+  background-color: var(--ios-bg);
+  color: var(--ios-text);
+  transition: background 0.5s ease;
+  padding-bottom: 110px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* --- DYNAMIC ISLAND (Hanya Mobile) --- */
+.dynamic-island-container { display: none; }
+
+@media (max-width: 767px) {
+  .dynamic-island-container {
+      position: fixed;
+      top: 12px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      z-index: 10000;
+      pointer-events: none;
   }
-header p{
-  font-size:1.05rem;margin-top:.5rem;opacity:0;transform:translateY(10px);animation:fadeUp 1.2s ease forwards .8s}
-@keyframes fadeUp{
-  from{
-    opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+  .dynamic-island {
+      width: 120px;
+      height: 35px;
+      background: var(--island-bg);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1.2);
+      pointer-events: auto;
+  }
+  .dynamic-island:hover { width: 250px; height: 40px; }
+  .island-content { display: none; color: white; font-size: 13px; align-items: center; gap: 10px; }
+  .dynamic-island:hover .island-content { display: flex; }
+  .island-content img { width: 22px; height: 22px; border-radius: 50%; }
+}
 
-/* theme toggle */
-#theme-toggle{position:absolute;top:15px;right:20px;padding:.6rem 1rem;border-radius:25px;border:0;background:#111;color:var(--yellow);cursor:pointer;font-weight:600}
-#theme-toggle:hover{background:var(--yellow-hover);color:#111}
-
-/* product grid & cards */
-.product-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.8rem;padding:2rem}
-.product-card{background:var(--card);border-radius:14px;padding:1rem;text-align:center;box-shadow:0 0 15px rgba(0,0,0,.12);transition:transform .28s ease,box-shadow .28s}
-.product-card {
-  background: var(--card);
-  border-radius: 14px;
-  padding: 1rem;
+/* --- HEADER (Desktop & Mobile) --- */
+header {
+  padding: 60px 20px 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
   text-align: center;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-  animation: fadeIn 1s ease;
-  overflow: hidden;
-  position: relative;
 }
 
-.product-card img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-  transition: transform 0.4s ease, filter 0.4s ease;
+.logo-main { width: 60px; height: 60px; border-radius: 14px; object-fit: cover; }
+header h1 { font-size: 32px; font-weight: 700; letter-spacing: -1px; }
+.header-subtitle { font-size: 16px; color: var(--ios-text-secondary); }
+
+.ios-theme-btn {
+  background: var(--ios-card);
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  padding: 8px 16px;
+  border-radius: 18px;
+  color: var(--ios-blue);
+  font-weight: 600;
+  cursor: pointer;
 }
 
-/* ✨ Efek Hover Baru */
-.product-card:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 10px 25px rgba(255, 212, 0, 0.4);
+@media (min-width: 768px) {
+  header { padding: 100px 20px 40px; flex-direction: row; justify-content: center; text-align: left; }
+  .logo-main { width: 55px; height: 55px; }
 }
 
-.product-card:hover img {
-  transform: scale(1.07);
-  filter: brightness(1.1);
+/* --- PRODUCT GRID --- */
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-.product-card:hover h2 {
-  color: var(--yellow);
-  text-shadow: 0 0 8px rgba(255, 212, 0, 0.6);
+@media (max-width: 600px) {
+  .product-container { grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 12px; }
 }
 
-.product-card:hover p {
-  opacity: 1;
-  color: var(--text);
+.product-card {
+  background: var(--ios-card);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border-radius: 28px;
+  padding: 18px;
+  border: 1px solid rgba(128, 128, 128, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
-.product-card img{width:100%;height:auto;border-radius:10px;margin-bottom:1rem;display:block}
-.product-card h2{font-size:1.05rem;margin-bottom:.5rem}
-.product-card p{font-size:.9rem;color:var(--text);opacity:.9;margin-bottom:.8rem}
-.product-card span{display:block;font-weight:700;margin-bottom:1rem;color:var(--yellow)}
-.buy-btn{background:var(--yellow);color:#111;padding:.6rem 1.5rem;border-radius:50px;border:0;cursor:pointer;font-weight:600;transition:transform .2s,background .2s}
-.buy-btn:hover{background:var(--yellow-hover);transform:scale(1.03)}
+.product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+.product-card:active { transform: scale(0.96); }
 
-/* footer */
-footer{background:#111;color:#eee;padding:3rem 1.5rem .5rem;margin-top:3rem;animation:fadeUpFooter 1.4s both}
-@keyframes fadeUpFooter{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:translateY(0)}}
-.footer-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2rem;max-width:1100px;margin:0 auto}
-.footer-about h3,.footer-links h4,.footer-social h4{color:var(--yellow)}
-.footer-about p{color:#ccc;line-height:1.6}
-.footer-links a{color:#ccc;text-decoration:none}
-.footer-links a:hover{color:var(--yellow)}
-.social-icons{display:flex;flex-direction:column;gap:.5rem}
-.social-icons a{display:flex;align-items:center;gap:.5rem;color:#ccc;text-decoration:none;transition:color .2s,transform .2s}
-.social-icons a i{color:var(--yellow)}
-.social-icons a:hover{color:var(--yellow);transform:translateX(4px)}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.08);margin-top:2.5rem;padding-top:1rem;text-align:center;color:#bbb;animation:fadeInBottom 1.8s both}
-.footer-bottom span{color:var(--yellow);font-weight:600}
-.footer-bottom strong{color:#fff}
-@keyframes fadeInBottom{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-
-/* responsive */
-@media (max-width:600px){
-  header h1{font-size:1.8rem}
-  .logo{width:46px;height:46px}
-  .footer-container{text-align:center}
-  .social-icons{align-items:center}
+.product-img-box {
+  width: 100%; aspect-ratio: 1/1; overflow: hidden; border-radius: 20px; margin-bottom: 12px; background: #fff;
 }
+.product-img-box img { width: 100%; height: 100%; object-fit: contain; }
+
+.product-card h2 { font-size: 16px; font-weight: 600; margin-bottom: 6px; min-height: 42px; display: flex; align-items: center; justify-content: center; }
+.product-card p { font-size: 13px; color: var(--ios-text-secondary); margin-bottom: 15px; height: 34px; overflow: hidden; }
+.price-ios { font-size: 18px; font-weight: 700; margin-bottom: 15px; color: var(--ios-blue); }
+
+.buy-btn { background: var(--ios-blue); color: #fff; border: none; padding: 10px; border-radius: 14px; font-weight: 600; cursor: pointer; }
+
+/* --- TAB BAR BAWAH --- */
+.iphone-tab-bar {
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 400px;
+  height: 65px;
+  background: var(--ios-card);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 35px;
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+
+.tab-item { text-decoration: none; display: flex; flex-direction: column; align-items: center; color: var(--ios-text-secondary); gap: 4px; }
+.tab-item.active { color: var(--ios-blue); }
+.tab-item i { font-size: 22px; }
+.tab-item span { font-size: 10px; font-weight: 600; }
+
+footer { text-align: center; padding: 40px 20px 140px; color: var(--ios-text-secondary); font-size: 13px; }
+.social-ios a { color: var(--ios-blue); font-size: 20px; margin: 0 10px; }
